@@ -7,7 +7,7 @@ CORS(app)  # Enable CORS for all routes
 
 # Load the Hugging Face model pipeline for conversational AI
 # Using a versatile pretrained model for better question answering
-qa_pipeline = pipeline("text2text-generation", model="google/flan-t5-base")
+qa_pipeline = pipeline("text2text-generation", model="google/flan-t5-small")
 
 @app.route('/api/respond', methods=['POST'])
 def respond():
