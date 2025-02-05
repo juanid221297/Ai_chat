@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from transformers import pipeline
-
+import os
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
@@ -28,4 +28,5 @@ def respond():
         return jsonify({'error': 'Something went wrong on the server.'}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=9000, debug=True)
+    port = int(os.environ.get("PORT", 1000))
+    app.run(host='0.0.0.0', port=port, debug=True)
